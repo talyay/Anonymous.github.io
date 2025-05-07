@@ -123,3 +123,9 @@ footer {
 #abstract {
   scroll-margin-top: 100px;
 }
+
+.github-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(0.7);
+  transition: all 0.2s ease;
+}
