@@ -1,95 +1,79 @@
-/* סגנון כללי לגוף הדף */
 body {
-    font-family: Arial, sans-serif;
-    margin: 2rem;
+    font-family: 'Merriweather', serif;
+    margin: 0;
     background: #f9f9f9;
     color: #333;
-    scroll-behavior: smooth; /* סקרול חלק בעת קפיצה למקטעים */
-}
-
-/* כותרת עליונה (version tag למשל) */
-.version-tag {
-    background: #eee;
-    padding: 0.5rem 1rem;
-    display: inline-block;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* עיצוב הכותרות הראשיות */
-header {
     text-align: center;
-    margin-bottom: 2rem;
 }
 
-/* כל מקטע בנפרד */
-section {
-    margin-bottom: 2rem;
+html {
+    scroll-behavior: smooth;
 }
 
-/* עיצוב כללי לכפתורים */
-button {
-    margin-left: 1rem;
-    padding: 0.3rem 0.7rem;
-    font-size: 1rem;
+/* Sticky navbar */
+nav {
+    position: sticky;
+    top: 0;
+    background: #f0f0f0;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 1000;
 }
 
-/* העטיפה של כל התוכן המרכזי */
+/* Navbar link style */
+nav a {
+    text-decoration: none;
+    color: #5c2d91;
+    font-weight: 600;
+}
+
+nav a.active {
+    border-bottom: 2px solid #5c2d91;
+    font-weight: bold;
+}
+
+/* Main container */
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 2rem auto;
     padding: 2rem;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
-    text-align: center;
 }
 
-/* התגית שמציגה אנונימיות */
-.tag {
-    background-color: #e0e0e0;
-    display: inline-block;
-    padding: 4px 12px;
-    font-size: 0.9rem;
-    border-radius: 5px;
+/* Anonymous note under title */
+.anon-note {
+    font-size: 1rem;
     margin-bottom: 1rem;
+    font-style: italic;
+    color: #333;
 }
 
-/* כותרת ראשית */
-h1 {
-    margin-bottom: 0.25rem;
-}
-
-/* קישורים */
-a {
-    color: #5c2d91;
-    text-decoration: none;
-}
-
-/* אפקט מעבר על קישור */
+/* Link hover */
 a:hover {
     text-decoration: underline;
 }
 
-/* כותרות משנה */
+h1 {
+    margin-bottom: 0.25rem;
+}
 h2 {
     margin-top: 2rem;
 }
 
-/* אזור תמונת הפיגר */
+/* Figures */
 .figure-container {
     margin-top: 1rem;
 }
-
-/* תפריטים נפתחים וכפתורים */
 select, button {
     margin-top: 1rem;
     padding: 0.5rem;
     font-size: 1rem;
 }
-
-/* תמונה של הפיגר */
 img {
     margin-top: 1rem;
     max-width: 100%;
@@ -99,27 +83,13 @@ img {
     background-color: #f4f4f4;
 }
 
-/* ניווט עליון - navbar */
-nav {
-    position: sticky; /* נצמד למעלה */
-    top: 0;
-    background-color: #f0f0f0;
-    padding: 1rem;
-    text-align: center;
-    z-index: 999;
-    border-bottom: 1px solid #ccc;
+/* Fade-in effect on scroll */
+.fade-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
 }
-
-/* קישורים בתוך ה-navbar */
-nav a {
-    margin: 0 1rem;
-    font-weight: bold;
-    color: #5c2d91;
-    text-decoration: none;
-}
-
-/* קישור פעיל בתפריט */
-nav a.active {
-    color: #000;
-    text-decoration: underline;
+.fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
