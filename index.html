@@ -7,13 +7,15 @@
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Navbar -->
+
+  <!-- ניווט עליון -->
   <nav class="navbar">
     <a href="#abstract">Abstract</a>
     <a href="#figures">Figures</a>
     <a href="#code">Code & Data</a>
   </nav>
 
+  <!-- תוכן מרכזי -->
   <div class="container">
     <h1>Paper Title Here</h1>
     <p class="anonymous-note">Anonymous submission – version 1</p>
@@ -21,6 +23,8 @@
 
     <h2 id="abstract">Abstract Title</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.</p>
+
+    <hr class="section-divider">
 
     <h2 id="figures">Figures</h2>
     <label for="figureSelect">Choose a figure:</label>
@@ -36,6 +40,14 @@
     </div>
   </div>
 
+  <hr class="section-divider">
+
+  <!-- פוטר אנונימי -->
+  <footer>
+    <p>&copy; 2025 – Research Project Submission</p>
+  </footer>
+
+  <!-- סקריפט -->
   <script>
     function showFigure() {
       const select = document.getElementById('figureSelect');
