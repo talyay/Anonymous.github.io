@@ -5,50 +5,100 @@
     <title>Paper Title Here</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        .tag {
+            background-color: #e0e0e0;
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            margin-bottom: 0.25rem;
+        }
+
+        a {
+            color: #5c2d91;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            margin-top: 2rem;
+        }
+
+        .figure-container {
+            margin-top: 1rem;
+        }
+
+        select, button {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+
+        img {
+            margin-top: 1rem;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #f4f4f4;
+        }
+    </style>
 </head>
 <body>
-    <div class="version-tag">Anonymous submission – version 1</div>
+<div class="container">
+    <div class="tag">Anonymous submission – version 1</div>
+    <h1>Paper Title Here</h1>
+    <a href="#">View Code and Data</a>
 
-    <header>
-        <h1>Paper Title Here</h1>
-        <p><a href="#">View Code and Data</a></p>
-    </header>
+    <h2>Abstract Title</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.</p>
 
-    <main>
-        <section id="abstract">
-            <h2>Abstract Title</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.</p>
-        </section>
+    <h2>Figures</h2>
+    <label for="figureSelect">Choose a figure:</label>
+    <select id="figureSelect">
+        <option value="figures/fig1.png">Figure 1</option>
+        <option value="figures/fig2.png">Figure 2</option>
+        <option value="figures/fig3.png">Figure 3</option>
+    </select>
+    <button onclick="showFigure()">Show Figure</button>
 
-        <section id="figures">
-            <h2>Figures</h2>
-            <label for="figure-select">Choose a figure:</label>
-            <select id="figure-select">
-                <option value="fig1">Figure 1</option>
-                <option value="fig2">Figure 2</option>
-                <option value="fig3">Figure 3</option>
-            </select>
-            <button onclick="showFigure()">Show Figure</button>
-            <br><br>
-            <img id="figure-display" src="" alt="Selected Figure" style="max-width: 100%; display: none;">
-        </section>
-    </main>
+    <div class="figure-container">
+        <img id="figureDisplay" src="figures/fig1.png" alt="Selected Figure">
+    </div>
+</div>
 
-    <script>
-        function showFigure() {
-            const select = document.getElementById("figure-select");
-            const img = document.getElementById("figure-display");
-            const selected = select.value;
-            
-            const figureMap = {
-                "fig1": "figures/fig1.png",
-                "fig2": "figures/fig2.png",
-                "fig3": "figures/fig3.png"
-            };
-            
-            img.src = figureMap[selected];
-            img.style.display = "block";
-        }
-    </script>
+<script>
+    function showFigure() {
+        const select = document.getElementById('figureSelect');
+        const img = document.getElementById('figureDisplay');
+        img.src = select.value;
+    }
+</script>
 </body>
 </html>
