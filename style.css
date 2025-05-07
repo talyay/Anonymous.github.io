@@ -1,95 +1,92 @@
+/* בסיס עיצוב כללי */
 body {
-    font-family: 'Merriweather', serif;
-    margin: 0;
-    background: #f9f9f9;
-    color: #333;
-    text-align: center;
+  font-family: Georgia, serif; /* גופן מחקרי */
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  color: #333;
+  text-align: center;
+  scroll-behavior: smooth; /* סקרול חלק */
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-/* Sticky navbar */
-nav {
-    position: sticky;
-    top: 0;
-    background: #f0f0f0;
-    padding: 1rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    z-index: 1000;
-}
-
-/* Navbar link style */
-nav a {
-    text-decoration: none;
-    color: #5c2d91;
-    font-weight: 600;
-}
-
-nav a.active {
-    border-bottom: 2px solid #5c2d91;
-    font-weight: bold;
-}
-
-/* Main container */
+/* עיצוב לתיבת התוכן המרכזית */
 .container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
 }
 
-/* Anonymous note under title */
-.anon-note {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    font-style: italic;
-    color: #333;
+/* Navbar עליון דביק */
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #f0f0f0;
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  border-bottom: 1px solid #ddd;
+  z-index: 999;
 }
 
-/* Link hover */
+/* קישורים בתוך navbar */
+.navbar a {
+  color: #5c2d91;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* טקסט "אנונימי" */
+.anonymous-note {
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* קישורי קוד ודאטה */
+a {
+  color: #5c2d91;
+  text-decoration: none;
+}
+
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
+/* כותרות */
 h1 {
-    margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
+
 h2 {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
-/* Figures */
+/* כפתור ורשימת בחירה */
+select,
+button {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+/* עיצוב תיבת תמונה */
 .figure-container {
-    margin-top: 1rem;
-}
-select, button {
-    margin-top: 1rem;
-    padding: 0.5rem;
-    font-size: 1rem;
-}
-img {
-    margin-top: 1rem;
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #f4f4f4;
+  margin-top: 1rem;
 }
 
-/* Fade-in effect on scroll */
-.fade-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-out;
-}
-.fade-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+img {
+  margin-top: 1rem;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f4f4f4;
 }
