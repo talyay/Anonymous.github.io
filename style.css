@@ -1,27 +1,101 @@
-
 body {
-    font-family: Arial, sans-serif;
-    margin: 2rem;
-    background: #f9f9f9;
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(to bottom, #fafafa, #ffffff);
     color: #333;
-}
-header {
     text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    background-color: #f5f5f5;
+    padding: 1em;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #5c2d91;
+}
+
+header {
     margin-bottom: 2rem;
 }
-.version-tag {
+
+.version-tag, .tag {
     background: #eee;
     padding: 0.5rem 1rem;
     display: inline-block;
     margin-bottom: 1rem;
     font-size: 0.9rem;
     color: #555;
+    border-radius: 5px;
 }
+
+h1 {
+    margin-bottom: 0.25rem;
+}
+
+a {
+    color: #5c2d91;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 section {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 2rem;
     margin-bottom: 2rem;
 }
-button {
-    margin-left: 1rem;
-    padding: 0.3rem 0.7rem;
+
+h2 {
+    margin-top: 2rem;
+}
+
+.figure-container {
+    margin-top: 1rem;
+}
+
+select, button {
+    margin-top: 1rem;
+    padding: 0.5rem;
     font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+img {
+    margin-top: 1rem;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.02);
 }
