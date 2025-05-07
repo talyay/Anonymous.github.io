@@ -1,15 +1,15 @@
-/* בסיס עיצוב כללי */
+/* בסיס כללי */
 body {
-  font-family: Georgia, serif; /* גופן מחקרי */
+  font-family: Georgia, serif;
   margin: 0;
   padding: 0;
   background-color: #f8f8f8;
   color: #333;
   text-align: center;
-  scroll-behavior: smooth; /* סקרול חלק */
+  scroll-behavior: smooth;
 }
 
-/* עיצוב לתיבת התוכן המרכזית */
+/* תוכן מרכזי */
 .container {
   max-width: 800px;
   margin: 4rem auto;
@@ -19,7 +19,7 @@ body {
   border-radius: 8px;
 }
 
-/* Navbar עליון דביק */
+/* ניווט דביק */
 .navbar {
   position: sticky;
   top: 0;
@@ -32,30 +32,34 @@ body {
   z-index: 999;
 }
 
-/* קישורים בתוך navbar */
+/* קישורים בניווט */
 .navbar a {
   color: #5c2d91;
   text-decoration: none;
   font-weight: bold;
 }
-
 .navbar a:hover {
   text-decoration: underline;
 }
 
-/* טקסט "אנונימי" */
+/* טקסט אנונימי */
 .anonymous-note {
-  font-size: 0.9rem;
-  margin-top: -0.5rem;
-  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  background: none !important;
+  padding: 0;
+  border: none;
+  color: #333 !important;
+  display: block;
 }
 
-/* קישורי קוד ודאטה */
+/* קישורים רגילים */
 a {
   color: #5c2d91;
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: underline;
 }
@@ -64,12 +68,11 @@ a:hover {
 h1 {
   margin-bottom: 0.2rem;
 }
-
 h2 {
   margin-top: 2rem;
 }
 
-/* כפתור ורשימת בחירה */
+/* כפתורים ובחירה */
 select,
 button {
   margin-top: 1rem;
@@ -77,11 +80,10 @@ button {
   font-size: 1rem;
 }
 
-/* עיצוב תיבת תמונה */
+/* תמונות */
 .figure-container {
   margin-top: 1rem;
 }
-
 img {
   margin-top: 1rem;
   max-width: 100%;
@@ -89,4 +91,21 @@ img {
   border: 1px solid #ccc;
   border-radius: 6px;
   background-color: #f4f4f4;
+}
+
+/* קו מפריד */
+.section-divider {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 3rem auto;
+  width: 80%;
+}
+
+/* פוטר */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 2rem;
 }
