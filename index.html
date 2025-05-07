@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paper Title Here</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="version-tag">Anonymous submission – version 1</div>
+
+    <header>
+        <h1>Paper Title Here</h1>
+        <p><a href="#">View Code and Data</a></p>
+    </header>
+
+    <main>
+        <section id="abstract">
+            <h2>Abstract Title</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.</p>
+        </section>
+
+        <section id="figures">
+            <h2>Figures</h2>
+            <label for="figure-select">Choose a figure:</label>
+            <select id="figure-select">
+                <option value="fig1">Figure 1</option>
+                <option value="fig2">Figure 2</option>
+                <option value="fig3">Figure 3</option>
+            </select>
+            <button onclick="showFigure()">Show Figure</button>
+            <br><br>
+            <img id="figure-display" src="" alt="Selected Figure" style="max-width: 100%; display: none;">
+        </section>
+    </main>
+
+    <script>
+        function showFigure() {
+            const select = document.getElementById("figure-select");
+            const img = document.getElementById("figure-display");
+            const selected = select.value;
+            
+            const figureMap = {
+                "fig1": "figures/fig1.png",
+                "fig2": "figures/fig2.png",
+                "fig3": "figures/fig3.png"
+            };
+            
+            img.src = figureMap[selected];
+            img.style.display = "block";
+        }
+    </script>
+</body>
+</html>
