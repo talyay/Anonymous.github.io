@@ -5,48 +5,87 @@
     <title>Paper Title Here</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav>
-    <a href="#abstract">Abstract</a>
-    <a href="#figures">Figures</a>
-    <a href="#">Code & Data</a>
-</nav>
+    <!-- ניווט עליון -->
+    <nav>
+        <a href="#abstract">Abstract</a>
+        <a href="#figures">Figures</a>
+        <a href="#code">Code & Data</a>
+    </nav>
 
-<div class="container">
-    <div class="tag">Anonymous submission – version 1</div>
-    <h1>Paper Title Here</h1>
-    <a href="#">View Code and Data</a>
+    <!-- תוכן מרכזי -->
+    <div class="container">
+        <h1>Paper Title Here</h1>
+        <p class="anon-note">Anonymous under review</p>
+        <a href="#" id="code">View Code and Data</a>
 
-    <section id="abstract">
-        <h2>Abstract Title</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.</p>
-    </section>
+        <!-- אבסטרקט -->
+        <section id="abstract" class="fade-section">
+            <h2>Abstract Title</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.</p>
+        </section>
 
-    <section id="figures">
-        <h2>Figures</h2>
-        <label for="figureSelect">Choose a figure:</label>
-        <select id="figureSelect">
-            <option value="figures/fig1.png">Figure 1</option>
-            <option value="figures/fig2.png">Figure 2</option>
-            <option value="figures/fig3.png">Figure 3</option>
-        </select>
-        <button onclick="showFigure()">Show Figure</button>
+        <!-- פיגרים -->
+        <section id="figures" class="fade-section">
+            <h2>Figures</h2>
+            <label for="figureSelect">Choose a figure:</label>
+            <select id="figureSelect">
+                <option value="figures/fig1.png">Figure 1</option>
+                <option value="figures/fig2.png">Figure 2</option>
+                <option value="figures/fig3.png">Figure 3</option>
+            </select>
+            <button onclick="showFigure()">Show Figure</button>
 
-        <div class="figure-container">
-            <img id="figureDisplay" src="figures/fig1.png" alt="Selected Figure">
-        </div>
-    </section>
-</div>
+            <div class="figure-container">
+                <img id="figureDisplay" src="figures/fig1.png" alt="Selected Figure">
+            </div>
+        </section>
+    </div>
 
-<script>
-    function showFigure() {
-        const select = document.getElementById('figureSelect');
-        const img = document.getElementById('figureDisplay');
-        img.src = select.value;
-    }
-</script>
+    <!-- סקריפט לניווט ופיידים -->
+    <script>
+        function showFigure() {
+            const select = document.getElementById('figureSelect');
+            const img = document.getElementById('figureDisplay');
+            img.src = select.value;
+        }
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            let current = "";
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active");
+                }
+            });
+        });
+
+        const faders = document.querySelectorAll('.fade-section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        faders.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 
 </body>
 </html>
