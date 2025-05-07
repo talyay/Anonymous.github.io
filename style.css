@@ -1,24 +1,52 @@
-/* בסיס */
+/* סגנון כללי לגוף הדף */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
+    margin: 2rem;
+    background: #f9f9f9;
     color: #333;
-    text-align: center;
+    scroll-behavior: smooth; /* סקרול חלק בעת קפיצה למקטעים */
 }
 
-/* קונטיינר למבנה ממורכז ונקי */
+/* כותרת עליונה (version tag למשל) */
+.version-tag {
+    background: #eee;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* עיצוב הכותרות הראשיות */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* כל מקטע בנפרד */
+section {
+    margin-bottom: 2rem;
+}
+
+/* עיצוב כללי לכפתורים */
+button {
+    margin-left: 1rem;
+    padding: 0.3rem 0.7rem;
+    font-size: 1rem;
+}
+
+/* העטיפה של כל התוכן המרכזי */
 .container {
     max-width: 800px;
-    margin: 2rem auto;
+    margin: 0 auto;
     padding: 2rem;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
+    text-align: center;
 }
 
-/* תווית גרסה */
+/* התגית שמציגה אנונימיות */
 .tag {
     background-color: #e0e0e0;
     display: inline-block;
@@ -26,15 +54,11 @@ body {
     font-size: 0.9rem;
     border-radius: 5px;
     margin-bottom: 1rem;
-    color: #555;
 }
 
-/* כותרות */
+/* כותרת ראשית */
 h1 {
     margin-bottom: 0.25rem;
-}
-h2 {
-    margin-top: 2rem;
 }
 
 /* קישורים */
@@ -42,41 +66,30 @@ a {
     color: #5c2d91;
     text-decoration: none;
 }
+
+/* אפקט מעבר על קישור */
 a:hover {
     text-decoration: underline;
 }
 
-/* ניווט */
-nav {
-    background-color: #f0f0f0;
-    padding: 1rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #ddd;
-}
-nav a {
-    margin: 0 1rem;
-    text-decoration: none;
-    font-weight: bold;
-    color: #5c2d91;
-    font-size: 1.1rem;
-}
-nav a:hover {
-    text-decoration: underline;
+/* כותרות משנה */
+h2 {
+    margin-top: 2rem;
 }
 
-/* כפתורים ותפריטים */
+/* אזור תמונת הפיגר */
+.figure-container {
+    margin-top: 1rem;
+}
+
+/* תפריטים נפתחים וכפתורים */
 select, button {
     margin-top: 1rem;
     padding: 0.5rem;
     font-size: 1rem;
 }
-button {
-    margin-left: 1rem;
-    padding: 0.3rem 0.7rem;
-}
 
-/* תמונה */
+/* תמונה של הפיגר */
 img {
     margin-top: 1rem;
     max-width: 100%;
@@ -86,7 +99,27 @@ img {
     background-color: #f4f4f4;
 }
 
-/* קונטיינר לפיגור */
-.figure-container {
-    margin-top: 1rem;
+/* ניווט עליון - navbar */
+nav {
+    position: sticky; /* נצמד למעלה */
+    top: 0;
+    background-color: #f0f0f0;
+    padding: 1rem;
+    text-align: center;
+    z-index: 999;
+    border-bottom: 1px solid #ccc;
+}
+
+/* קישורים בתוך ה-navbar */
+nav a {
+    margin: 0 1rem;
+    font-weight: bold;
+    color: #5c2d91;
+    text-decoration: none;
+}
+
+/* קישור פעיל בתפריט */
+nav a.active {
+    color: #000;
+    text-decoration: underline;
 }
