@@ -1,10 +1,10 @@
-/* בסיס כללי */
+/* עיצוב בסיסי כללי */
 body {
-  font-family: Georgia, serif;
+  font-family: 'Merriweather', serif;
   margin: 0;
   padding: 0;
   background-color: #f8f8f8;
-  color: #333;
+  color: #222;
   text-align: center;
   scroll-behavior: smooth;
 }
@@ -19,12 +19,12 @@ body {
   border-radius: 8px;
 }
 
-/* ניווט דביק */
+/* ניווט עליון דביק */
 .navbar {
   position: sticky;
   top: 0;
-  background-color: #f0f0f0;
-  padding: 0.75rem 0;
+  background-color: #ffffff;
+  padding: 1rem 0;
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -32,9 +32,8 @@ body {
   z-index: 999;
 }
 
-/* קישורים בניווט */
 .navbar a {
-  color: #5c2d91;
+  color: #444;
   text-decoration: none;
   font-weight: bold;
 }
@@ -46,18 +45,14 @@ body {
 .anonymous-note {
   font-size: 0.95rem;
   font-style: italic;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   margin-bottom: 1.5rem;
-  background: none !important;
-  padding: 0;
-  border: none;
-  color: #333 !important;
-  display: block;
+  color: #444;
 }
 
-/* קישורים רגילים */
+/* קישורים */
 a {
-  color: #5c2d91;
+  color: #444;
   text-decoration: none;
 }
 a:hover {
@@ -67,30 +62,46 @@ a:hover {
 /* כותרות */
 h1 {
   margin-bottom: 0.2rem;
+  font-size: 2rem;
 }
 h2 {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  font-size: 1.4rem;
 }
 
-/* כפתורים ובחירה */
+/* בחירה וכפתור */
 select,
 button {
   margin-top: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
+}
+
+button {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #e2e2e2;
 }
 
 /* תמונות */
 .figure-container {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
+
 img {
   margin-top: 1rem;
   max-width: 100%;
   height: auto;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
   background-color: #f4f4f4;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* קו מפריד */
