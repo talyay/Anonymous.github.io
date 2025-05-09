@@ -8,24 +8,23 @@ const figurePaths = {
 
 window.addEventListener("DOMContentLoaded", () => {
   const select = document.getElementById("figureSelect");
-  const btn = document.getElementById("showBtn");
-  const embed = document.getElementById("figureDisplay");
+  const btn    = document.getElementById("showBtn");
+  const embed  = document.getElementById("figureDisplay");
 
   function updateFigure() {
     const key = select.value;
-    embed.src = figurePaths[key] || "";
+    const path = figurePaths[key];
+    embed.src = path + "?v=" + new Date().getTime(); // מוסיף מזהה ייחודי כדי לכפות רענון
 
-    // Hide all
+    // עדכון טקסט
     document.querySelectorAll(".figure-text")
-            .forEach(el => el.style.display = "none");
+            .forEach(p => p.style.display = "none");
 
-    // Show matching
-    const shown = document.getElementById(key + "-text");
-    if (shown) shown.style.display = "block";
+    const txt = document.getElementById(key + "-text");
+    if (txt) txt.style.display = "block";
   }
 
   btn.addEventListener("click", updateFigure);
   select.addEventListener("change", updateFigure);
-
   updateFigure();
 });
