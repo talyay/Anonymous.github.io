@@ -5,68 +5,78 @@
   <title>Paper Title Here</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="style.css" rel="stylesheet" />
-  <!-- Merriweather font -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
-  <!-- Font Awesome for GitHub icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- MathJax for LaTeX support -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
-  <!-- ניווט עליון -->
+
   <nav class="navbar">
     <a href="#abstract">Abstract</a>
     <a href="#figures">Figures</a>
     <a href="#code">Code & Data</a>
   </nav>
 
-  <!-- תוכן המרכזי -->
   <div class="container">
     <h1>Paper Title Here</h1>
-    <p class="anonymous-note"><em>Anonymous submission – for review </em></p>
-    
-    <!-- קישור עם אייקון גיטהאב -->
-    <a id="code" href="#">
-      <i class="fab fa-github github-icon" style="margin-right: 6px;"></i> View Code and Data
-    </a>
+    <p class="anonymous-note"><em>Anonymous submission – version 1</em></p>
+    <a id="code" href="#"><i class="fab fa-github github-icon"></i> View Code and Data</a>
 
-    <!-- קו מפריד לפני ה־Abstract -->
     <hr class="section-divider" />
 
     <h2 id="abstract">Abstract Title</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-      Suspendisse lectus tortor, dignissim sit amet.
+      This is where your abstract goes. You can include inline LaTeX like \( E = mc^2 \),
+      or block equations like:
     </p>
+    <p>$$ \int_a^b f(x)\,dx = F(b) - F(a) $$</p>
 
-    <!-- קו מפריד לפני Figures -->
     <hr class="section-divider" />
 
     <h2 id="figures">Figures</h2>
     <label for="figureSelect">Choose a figure:</label>
-    <select id="figureSelect">
-      <option value="figures/fig1.png">Figure 1</option>
-      <option value="figures/fig2.png">Figure 2</option>
-      <option value="figures/fig3.png">Figure 3</option>
+    <select id="figureSelect" onchange="showFigure()">
+      <option value="Ranking_figure.pdf">Figure 3</option>
+      <option value="meta_plot_swapped_axes_top_acc.pdf">Figure 4</option>
+      <option value="combined_accuracy_and_metroplot_full.pdf">Figure 2</option>
+      <option value="mds_full_features_small.pdf">Figure 5</option>
+      <option value="total_model_recovery_accuracy_no_Ef.pdf">Figure 1</option>
     </select>
-    <button onclick="showFigure()">Show Figure</button>
 
     <div class="figure-container">
-      <img id="figureDisplay" src="figures/fig1.png" alt="Selected Figure" />
+      <iframe id="figureDisplay" src="Ranking_figure.pdf" width="100%" height="500px"></iframe>
+      <p id="figureDescription" class="figure-description">
+        <strong>Figure 3:</strong> <b>(A)</b> Mean rank of the data-generating model where, for each dataset, models are ordered according to their predictive accuracy. Ranks were averaged over simulated datasets each containing 4.2M triplets. <b>(B)</b> Mean rank of each model when it is <em>not</em> the data-generating model, averaged over simulated datasets with 4.2M training triplets.
+      </p>
     </div>
 
-    <!-- קו מפריד לפני פוטר -->
     <hr class="section-divider" />
 
-    <!-- פוטר -->
     <footer class="footer">
       <p>This project was created with ❤️ for anonymous academic review.</p>
     </footer>
   </div>
 
   <script>
+    const descriptions = {
+      "Ranking_figure.pdf": "<strong>Figure 3:</strong> <b>(A)</b> Mean rank of the data-generating model where, for each dataset, models are ordered according to their predictive accuracy. Ranks were averaged over simulated datasets each containing 4.2M triplets. <b>(B)</b> Mean rank of each model when it is <em>not</em> the data-generating model, averaged over simulated datasets with 4.2M training triplets.",
+      "meta_plot_swapped_axes_top_acc.pdf": "<strong>Figure 4:</strong> Model recovery accuracy as a function of “best-case” predictive accuracy. Each point reflects a probe flexibility (from zero-shot to full matrix) and training set size.",
+      "combined_accuracy_and_metroplot_full.pdf": "<strong>Figure 2:</strong> Model test accuracy on the THINGS odd-one-out dataset over gradient levels of linear-probing flexibility. <b>(A)</b> models accuracy using Zero-shot evaluation. <b>(B)</b> using diagonal transformation matrix. <b>(C)</b> using rectangular transformation matrix. <b>(D)</b> using square transformation matrix. OpenAI CLIP ResNet-50 yields highest predictive accuracy.",
+      "mds_full_features_small.pdf": "<strong>Figure 5:</strong> Change in representational dissimilarity before and after linear transformation, visualized using MDS. Red dot: original embedding. Green arrow: shift due to probing. VICE model is used as human-like reference.",
+      "total_model_recovery_accuracy_no_Ef.pdf": "<strong>Figure 1:</strong> <b>(A)</b> Model recovery accuracy across dataset sizes. <b>(B, C, D)</b> Confusion matrices at three training sizes. Rows = generating model, columns = recovered model. Diagonal = correct recovery."
+    };
+
     function showFigure() {
       const select = document.getElementById("figureSelect");
-      const img = document.getElementById("figureDisplay");
-      img.src = select.value;
+      const iframe = document.getElementById("figureDisplay");
+      const desc = document.getElementById("figureDescription");
+
+      iframe.src = select.value;
+      desc.innerHTML = descriptions[select.value];
     }
   </script>
 </body>
