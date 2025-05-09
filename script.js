@@ -19,7 +19,6 @@ window.addEventListener("DOMContentLoaded", () => {
     embed.src = file;
     fileName.textContent = file.split("/").pop();
 
-    // hide all descriptions
     document.querySelectorAll(".figure-text").forEach(el => {
       el.style.display = "none";
     });
@@ -31,5 +30,5 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   select.addEventListener("change", updateFigure);
-  updateFigure(); // initialize
+  updateFigure();
 });
