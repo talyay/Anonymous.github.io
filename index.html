@@ -6,36 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <a href="#abstract">Abstract</a>
     <a href="#figures">Figures</a>
     <a href="#code">Code & Data</a>
   </nav>
 
-  <!-- Main Content -->
   <div class="container">
     <h1>Paper Title Here</h1>
     <p class="anonymous-note"><em>Anonymous submission – version 1</em></p>
     <p>
       <a id="code" href="#">
-        <i class="fa-brands fa-github github-icon"></i>
+        <i class="fab fa-github github-icon"></i>
         View Code and Data
       </a>
     </p>
 
     <hr class="section-divider" />
 
-    <!-- Abstract -->
     <h2 id="abstract">Abstract Title</h2>
-    <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.</p>
+    <p class="section-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.
+    </p>
 
     <hr class="section-divider" />
 
-    <!-- Figures -->
     <h2 id="figures">Figures</h2>
     <div class="controls">
       <label for="figureSelect">Choose a figure:</label>
@@ -46,19 +44,19 @@
         <option value="fig4">Figure 4</option>
         <option value="fig5">Figure 5</option>
       </select>
-      <button id="showBtn">Show Figure</button>
     </div>
 
     <div class="figure-container">
-      <iframe id="figureDisplay" src="figures/meta_plot_swapped_axes_top_acc.pdf" width="100%" height="500px" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+      <embed id="figureDisplay" src="figures/meta_plot_swapped_axes_top_acc.pdf" type="application/pdf" width="100%" height="500px" />
+      <h3 id="figureFileName">meta_plot_swapped_axes_top_acc.pdf</h3>
     </div>
 
     <div class="figure-descriptions">
       <p class="figure-text" id="fig1-text">
         <strong>Figure 1:</strong><br>
         <strong>(A)</strong> Model recovery accuracy across different dataset sizes.<br>
-        <strong>(B, C, D)</strong> Confusion matrices at three training set sizes.<br>
-        Each matrix row corresponds to the data-generating model, and each column to the recovered model.<br>
+        <strong>(B, C, D)</strong> Confusion matrices at three training set sizes.<br>
+        Each matrix row corresponds to the data-generating model, and each matrix column to the recovered model.<br>
         Diagonal entries represent correct model recovery.
       </p>
       <p class="figure-text" id="fig2-text">
@@ -67,29 +65,27 @@
         <strong>(A)</strong> Zero-shot evaluation.<br>
         <strong>(B)</strong> Diagonal transformation matrix.<br>
         <strong>(C)</strong> Rectangular transformation (p×10).<br>
-        <strong>(D)</strong> Square transformation (p×p).<br>
-        OpenAI CLIP ResNet-50 yields the highest predictive accuracy.
+        <strong>(D)</strong> Square transformation (p×p).
       </p>
       <p class="figure-text" id="fig3-text">
         <strong>Figure 3:</strong><br>
-        <strong>(A)</strong> Mean rank of the data-generating model.<br>
-        <strong>(B)</strong> Mean rank when model is <em>not</em> the data generator.
+        <strong>(A)</strong> Mean rank of the data-generating model ordered by predictive accuracy.<br>
+        <strong>(B)</strong> Mean rank of each model when it is <em>not</em> the data-generating model.
       </p>
       <p class="figure-text" id="fig4-text">
         <strong>Figure 4:</strong><br>
-        Model recovery accuracy vs. best-case predictive accuracy.<br>
-        Each point reflects a probe flexibility and training size.
+        Model recovery accuracy as a function of “best-case” predictive accuracy.<br>
+        Each point reflects a probe flexibility and training set size.
       </p>
       <p class="figure-text" id="fig5-text">
         <strong>Figure 5:</strong><br>
-        Change in representational dissimilarity after linear transformation.<br>
-        MDS: red dot = original; green arrow = shift.<br>
-        VICE model used as reference.
+        Change in representational dissimilarity before and after applying a linear transformation.<br>
+        Visualized using MDS: red dot = original embedding; green arrow = probing shift.<br>
+        VICE model used as the most human-like representational space.
       </p>
     </div>
 
     <hr class="section-divider" />
-
     <footer class="footer">
       <p>This project was created with ❤️ for anonymous academic review.</p>
     </footer>
