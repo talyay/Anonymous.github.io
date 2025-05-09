@@ -1,31 +1,110 @@
-<!-- קו מפריד לפני Figures -->
-<hr class="section-divider" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Paper Title Here</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="style.css" rel="stylesheet" />
+  <!-- Merriweather font -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
+  <!-- GitHub icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <!-- ניווט עליון -->
+  <nav class="navbar">
+    <a href="#abstract">Abstract</a>
+    <a href="#figures">Figures</a>
+    <a href="#code">Code & Data</a>
+  </nav>
 
-<h2 id="figures">Figures</h2>
-<label for="figureSelect">Choose a figure:</label>
-<select id="figureSelect">
-  <option value="figures/total_model_recovery_accuracy_no_Ef.pdf">Figure 1</option>
-  <option value="figures/meta_plot_swapped_axes_top_acc.pdf">Figure 2</option>
-  <option value="figures/Ranking_figure.pdf">Figure 3</option>
-  <option value="figures/combined_accuracy_and_metroplot_full.pdf">Figure 4</option>
-  <option value="figures/mds_full_features_small.pdf">Figure 5</option>
-</select>
-<button onclick="showFigure()">Show Figure</button>
+  <!-- תוכן המרכזי -->
+  <div class="container">
+    <h1>Paper Title Here</h1>
+    <p class="anonymous-note"><em>Anonymous submission – for review</em></p>
 
-<div class="figure-container">
-  <iframe
-    id="figureDisplay"
-    src="figures/total_model_recovery_accuracy_no_Ef.pdf"
-    width="100%"
-    height="500px"
-    style="border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"
-  ></iframe>
-</div>
+    <!-- קישור לקוד ודאטה עם אייקון -->
+    <a id="code" href="#">
+      <i class="fa-brands fa-github github-icon"></i>
+      View Code and Data
+    </a>
 
-<script>
-  function showFigure() {
-    const select = document.getElementById("figureSelect");
-    const iframe = document.getElementById("figureDisplay");
-    iframe.src = select.value;
-  }
-</script>
+    <!-- קו מפריד לפני ה־Abstract -->
+    <hr class="section-divider" />
+
+    <h2 id="abstract">Abstract Title</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. <br>
+      Suspendisse lectus tortor, dignissim sit amet.
+    </p>
+
+    <!-- קו מפריד לפני Figures -->
+    <hr class="section-divider" />
+
+    <h2 id="figures">Figures</h2>
+    <label for="figureSelect">Choose a figure:</label>
+    <select id="figureSelect">
+      <option value="figures/total_model_recovery_accuracy_no_Ef.pdf">Figure 1</option>
+      <option value="figures/combined_accuracy_and_metroplot_full.pdf">Figure 2</option>
+      <option value="figures/Ranking_figure.pdf">Figure 3</option>
+      <option value="figures/meta_plot_swapped_axes_top_acc.pdf">Figure 4</option>
+      <option value="figures/mds_full_features_small.pdf">Figure 5</option>
+    </select>
+    <button onclick="showFigure()">Show Figure</button>
+
+    <div class="figure-container">
+      <embed id="figureDisplay" src="figures/total_model_recovery_accuracy_no_Ef.pdf" type="application/pdf" width="100%" height="500px" />
+    </div>
+
+    <!-- טקסטים מתחת לפיגרים -->
+    <div class="figure-descriptions">
+      <p><strong>Figure 1:</strong> <br>
+        <strong>(A)</strong> Model recovery accuracy across different dataset sizes. <br>
+        <strong>(B, C, D)</strong> Confusion matrices at three training set sizes. Each matrix row corresponds to the data-generating model, and each matrix column to the recovered model. <br>
+        Diagonal entries represent correct model recovery.
+      </p>
+
+      <p><strong>Figure 2:</strong> <br>
+        Model test accuracy on the THINGS odd-one-out dataset over gradient levels of linear-probing flexibility. <br>
+        <strong>(A)</strong> models accuracy using Zero-shot evaluation. <br>
+        <strong>(B)</strong> using diagonal transformation matrix, fitting p parameters of the linear transformation. <br>
+        <strong>(C)</strong> using rectangular transformation matrix fitting p×10 parameters. <br>
+        <strong>(D)</strong> using square transformation matrix fitting p×p parameters. <br>
+        A filled dot connected to an open dot indicates significantly greater accuracy. OpenAI CLIP ResNet-50 yields the highest predictive accuracy significantly.
+      </p>
+
+      <p><strong>Figure 3:</strong> <br>
+        <strong>(A)</strong> Mean rank of the data-generating model where models are ordered according to predictive accuracy. <br>
+        <strong>(B)</strong> Mean rank of each model when it is <em>not</em> the data-generating model.
+      </p>
+
+      <p><strong>Figure 4:</strong> <br>
+        Model recovery accuracy as a function of “best-case” predictive accuracy. <br>
+        Each point reflects a probe flexibility and training set size.
+      </p>
+
+      <p><strong>Figure 5:</strong> <br>
+        Change in representational dissimilarity between models before and after applying a linear transformation, visualized using MDS. <br>
+        A red dot indicates the model's original embedding, and a green arrow represents the distance due to probing. <br>
+        VICE is used as a representative of the most human-like representational space.
+      </p>
+    </div>
+
+    <!-- קו מפריד לפני פוטר -->
+    <hr class="section-divider" />
+
+    <!-- פוטר -->
+    <footer class="footer">
+      <p>This project was created with ❤️ for anonymous academic review.</p>
+    </footer>
+  </div>
+
+  <script>
+    function showFigure() {
+      const select = document.getElementById("figureSelect");
+      const embed = document.getElementById("figureDisplay");
+      embed.src = select.value;
+    }
+  </script>
+</body>
+</html>
