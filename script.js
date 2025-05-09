@@ -1,4 +1,3 @@
-// map your figure-keys to file paths
 const figurePaths = {
   fig1: "figures/meta_plot_swapped_axes_top_acc.pdf",
   fig2: "figures/combined_accuracy_and_metroplot_full.pdf",
@@ -7,27 +6,26 @@ const figurePaths = {
   fig5: "figures/mds_full_features_small.pdf"
 };
 
-// grab elements (script is loaded *after* the DOM)
-const selectEl = document.getElementById("figureSelect");
-const btn      = document.getElementById("showBtn");
-const embedEl  = document.getElementById("figureDisplay");
-const texts    = document.querySelectorAll(".figure-text");
+window.addEventListener("DOMContentLoaded", () => {
+  const select = document.getElementById("figureSelect");
+  const btn = document.getElementById("showBtn");
+  const embed = document.getElementById("figureDisplay");
 
-// the updater function
-function updateFigure() {
-  const key = selectEl.value;
-  // swap the embed src
-  embedEl.src = figurePaths[key] || "";
-  // hide all descriptions
-  texts.forEach(p => p.style.display = "none");
-  // show the matching one
-  const txt = document.getElementById(key + "-text");
-  if (txt) txt.style.display = "block";
-}
+  function updateFigure() {
+    const key = select.value;
+    embed.src = figurePaths[key] || "";
 
-// set up event listeners
-btn.addEventListener("click", updateFigure);
-selectEl.addEventListener("change", updateFigure);
+    // Hide all
+    document.querySelectorAll(".figure-text")
+            .forEach(el => el.style.display = "none");
 
-// initial load
-updateFigure();
+    // Show matching
+    const shown = document.getElementById(key + "-text");
+    if (shown) shown.style.display = "block";
+  }
+
+  btn.addEventListener("click", updateFigure);
+  select.addEventListener("change", updateFigure);
+
+  updateFigure();
+});
