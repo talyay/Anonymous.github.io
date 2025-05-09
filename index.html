@@ -5,10 +5,8 @@
   <title>Paper Title Here</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="style.css" rel="stylesheet" />
-  <!-- Merriweather font -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
-  <!-- GitHub icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://kit.fontawesome.com/5a2d6f0b7d.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <!-- ניווט עליון -->
@@ -21,76 +19,67 @@
   <!-- תוכן המרכזי -->
   <div class="container">
     <h1>Paper Title Here</h1>
-    <p class="anonymous-note"><em>Anonymous submission – for review</em></p>
+    <p class="anonymous-note"><em>Anonymous submission – version 1</em></p>
+    <a id="code" href="#"><i class="fab fa-github github-icon"></i> View Code and Data</a>
 
-    <!-- קישור לקוד ודאטה עם אייקון -->
-    <a id="code" href="#">
-      <i class="fa-brands fa-github github-icon"></i>
-      View Code and Data
-    </a>
-
-    <!-- קו מפריד לפני ה־Abstract -->
     <hr class="section-divider" />
 
     <h2 id="abstract">Abstract Title</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. <br>
-      Suspendisse lectus tortor, dignissim sit amet.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.
     </p>
 
-    <!-- קו מפריד לפני Figures -->
     <hr class="section-divider" />
 
     <h2 id="figures">Figures</h2>
     <label for="figureSelect">Choose a figure:</label>
     <select id="figureSelect">
-      <option value="figures/total_model_recovery_accuracy_no_Ef.pdf">Figure 1</option>
-      <option value="figures/combined_accuracy_and_metroplot_full.pdf">Figure 2</option>
-      <option value="figures/Ranking_figure.pdf">Figure 3</option>
-      <option value="figures/meta_plot_swapped_axes_top_acc.pdf">Figure 4</option>
-      <option value="figures/mds_full_features_small.pdf">Figure 5</option>
+      <option value="fig1">Figure 1</option>
+      <option value="fig2">Figure 2</option>
+      <option value="fig3">Figure 3</option>
+      <option value="fig4">Figure 4</option>
+      <option value="fig5">Figure 5</option>
     </select>
     <button onclick="showFigure()">Show Figure</button>
 
     <div class="figure-container">
-      <embed id="figureDisplay" src="figures/total_model_recovery_accuracy_no_Ef.pdf" type="application/pdf" width="100%" height="500px" />
+      <embed id="figureDisplay" src="figures/meta_plot_swapped_axes_top_acc.pdf" type="application/pdf" width="100%" height="500px" />
     </div>
 
-    <!-- טקסטים מתחת לפיגרים -->
-    <div class="figure-descriptions">
-      <p><strong>Figure 1:</strong> <br>
-        <strong>(A)</strong> Model recovery accuracy across different dataset sizes. <br>
-        <strong>(B, C, D)</strong> Confusion matrices at three training set sizes. Each matrix row corresponds to the data-generating model, and each matrix column to the recovered model. <br>
+    <div id="figureText">
+      <p id="fig1-text" class="figure-text active"><strong>Figure 1:</strong><br>
+        <strong>(A)</strong> Model recovery accuracy across different dataset sizes.<br>
+        <strong>(B, C, D)</strong> Confusion matrices at three training set sizes. Each matrix row corresponds to the data-generating model, and each matrix column to the recovered model.<br>
         Diagonal entries represent correct model recovery.
       </p>
 
-      <p><strong>Figure 2:</strong> <br>
-        Model test accuracy on the THINGS odd-one-out dataset over gradient levels of linear-probing flexibility. <br>
-        <strong>(A)</strong> models accuracy using Zero-shot evaluation. <br>
-        <strong>(B)</strong> using diagonal transformation matrix, fitting p parameters of the linear transformation. <br>
-        <strong>(C)</strong> using rectangular transformation matrix fitting p×10 parameters. <br>
-        <strong>(D)</strong> using square transformation matrix fitting p×p parameters. <br>
-        A filled dot connected to an open dot indicates significantly greater accuracy. OpenAI CLIP ResNet-50 yields the highest predictive accuracy significantly.
+      <p id="fig2-text" class="figure-text">
+        <strong>Figure 2:</strong><br>
+        Model test accuracy on the THINGS odd-one-out dataset over gradient levels of linear-probing flexibility.<br>
+        <strong>(A)</strong> models accuracy using Zero-shot evaluation.<br>
+        <strong>(B)</strong> using diagonal transformation matrix, fitting p parameters of the linear transformation.<br>
+        <strong>(C)</strong> using rectangular transformation matrix fitting p×10 parameters.<br>
+        <strong>(D)</strong> using square transformation matrix fitting p×p parameters.<br>
+        A filled dot connected to an open dot indicates significantly greater accuracy (sign test, FWER corrected). For most flexible evaluations, OpenAI CLIP ResNet-50 yields the highest predictive accuracy significantly.
       </p>
 
-      <p><strong>Figure 3:</strong> <br>
-        <strong>(A)</strong> Mean rank of the data-generating model where models are ordered according to predictive accuracy. <br>
-        <strong>(B)</strong> Mean rank of each model when it is <em>not</em> the data-generating model.
+      <p id="fig3-text" class="figure-text">
+        <strong>Figure 3:</strong><br>
+        <strong>(A)</strong> Mean rank of the data-generating model where, for each dataset, models are ordered according to their predictive accuracy. Ranks were averaged over simulated datasets each containing 4.2M triplets.<br>
+        <strong>(B)</strong> Mean rank of each model when it is <em>not</em> the data-generating model, averaged over simulated datasets with 4.2M training triplets.
       </p>
 
-      <p><strong>Figure 4:</strong> <br>
-        Model recovery accuracy as a function of “best-case” predictive accuracy. <br>
-        Each point reflects a probe flexibility and training set size.
+      <p id="fig4-text" class="figure-text">
+        <strong>Figure 4:</strong><br>
+        Model recovery accuracy as a function of “best-case” predictive accuracy. Each point reflects a probe flexibility (from zero-shot to full matrix) and training set size.
       </p>
 
-      <p><strong>Figure 5:</strong> <br>
-        Change in representational dissimilarity between models before and after applying a linear transformation, visualized using MDS. <br>
-        A red dot indicates the model's original embedding, and a green arrow represents the distance due to probing. <br>
-        VICE is used as a representative of the most human-like representational space.
+      <p id="fig5-text" class="figure-text">
+        <strong>Figure 5:</strong><br>
+        We summarize the change in representational dissimilarity between models before and after applying a linear transformation, visualized using MDS. A red dot indicates the model's original embedding, and a green arrow represents the 'traveled distance' of its representational space due to linear probing. We used VICE, an embedding model optimized for the THINGS odd-one-out task, as a representative of the most human-like representational space.
       </p>
     </div>
 
-    <!-- קו מפריד לפני פוטר -->
     <hr class="section-divider" />
 
     <!-- פוטר -->
@@ -100,10 +89,22 @@
   </div>
 
   <script>
+    const figurePaths = {
+      fig1: "figures/meta_plot_swapped_axes_top_acc.pdf",
+      fig2: "figures/combined_accuracy_and_metroplot_full.pdf",
+      fig3: "figures/Ranking_figure.pdf",
+      fig4: "figures/total_model_recovery_accuracy_no_Ef.pdf",
+      fig5: "figures/mds_full_features_small.pdf"
+    };
+
     function showFigure() {
       const select = document.getElementById("figureSelect");
-      const embed = document.getElementById("figureDisplay");
-      embed.src = select.value;
+      const display = document.getElementById("figureDisplay");
+      const texts = document.querySelectorAll(".figure-text");
+
+      display.src = figurePaths[select.value];
+      texts.forEach(text => text.classList.remove("active"));
+      document.getElementById(`${select.value}-text`).classList.add("active");
     }
   </script>
 </body>
