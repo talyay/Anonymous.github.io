@@ -1,10 +1,10 @@
+
 body {
   font-family: 'Merriweather', serif;
   margin: 0;
   padding: 0;
   background-color: #f8f8f8;
   color: #222;
-  text-align: center;
   scroll-behavior: smooth;
 }
 
@@ -15,6 +15,7 @@ body {
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
+  text-align: center;
 }
 
 .navbar {
@@ -57,9 +58,7 @@ a:hover {
 }
 
 .github-icon {
-  font-size: 1.1rem;
-  margin-right: 0.5rem;
-  vertical-align: middle;
+  margin-right: 6px;
   transition: transform 0.2s ease;
 }
 
@@ -75,6 +74,7 @@ h1 {
 h2 {
   margin-top: 2.5rem;
   font-size: 1.4rem;
+  scroll-margin-top: 120px;
 }
 
 select,
@@ -103,19 +103,20 @@ button:hover {
 embed {
   border: 1px solid #ccc;
   border-radius: 8px;
+  background-color: #f4f4f4;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
 }
 
-.figure-text {
-  display: none;
+.figure-descriptions {
   text-align: left;
   margin-bottom: 2rem;
   padding: 0 1rem;
 }
 
-.figure-text.active {
-  display: block;
+.figure-text {
+  display: none;
+  line-height: 1.6;
 }
 
 .section-divider {
@@ -131,8 +132,4 @@ footer {
   font-size: 0.85rem;
   color: #777;
   margin-bottom: 2rem;
-}
-
-#abstract {
-  scroll-margin-top: 120px;
 }
