@@ -1,124 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Paper Title Here</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Merriweather font -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
-  <!-- Font Awesome free CDN for GitHub icon -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-pE1KQwKsv8i1zIY7vQfWJe/+uIu0eVj1I6QO3aVvYkxcjdxlP6v+3RksZZ8HyoZOXVhX4a0zN+9VInAS+U9gPg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  <!-- main stylesheet -->
-  <link href="style.css" rel="stylesheet" />
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="#abstract">Abstract</a>
-    <a href="#figures">Figures</a>
-    <a href="#code">Code & Data</a>
-  </nav>
+/* --- Base & Layout --- */
+body {
+  font-family: 'Merriweather', serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f8f8;
+  color: #222;
+  scroll-behavior: smooth;
+}
 
-  <!-- Main content container -->
-  <div class="container">
-    <h1>Paper Title Here</h1>
-    <p class="anonymous-note"><em>Anonymous submission – version 1</em></p>
-    <p>
-      <a id="code" href="#">
-        <i class="fa-brands fa-github github-icon"></i>
-        View Code and Data
-      </a>
-    </p>
+.container {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  text-align: center;
+}
 
-    <hr class="section-divider" />
+/* --- Navbar --- */
+.navbar {
+  position: sticky;
+  top: 0; left: 0; right: 0;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 1000;
+}
+.navbar a {
+  color: #444;
+  text-decoration: none;
+  font-weight: bold;
+}
+.navbar a:hover {
+  text-decoration: underline;
+}
 
-    <!-- Abstract section -->
-    <h2 id="abstract">Abstract Title</h2>
-    <p class="section-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.
-    </p>
+/* --- GitHub Icon --- */
+.github-icon {
+  margin-right: 6px;
+  transition: transform 0.2s ease;
+}
+.github-icon:hover {
+  transform: scale(1.2);
+}
 
-    <hr class="section-divider" />
+/* --- Anonymous Tag & Links --- */
+.anonymous-note {
+  font-style: italic;
+  margin: 1rem 0 1.5rem;
+  color: #444;
+}
+a {
+  color: #444;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 
-    <!-- Figures section -->
-    <h2 id="figures">Figures</h2>
-    <div class="controls">
-      <label for="figureSelect">Choose a figure:</label>
-      <select id="figureSelect">
-        <option value="fig1">Figure 1</option>
-        <option value="fig2">Figure 2</option>
-        <option value="fig3">Figure 3</option>
-        <option value="fig4">Figure 4</option>
-        <option value="fig5">Figure 5</option>
-      </select>
-      <button id="showBtn">Show Figure</button>
-    </div>
+/* --- Headings & Sections --- */
+h1 { font-size: 2rem; margin-bottom: 0.2rem; }
+h2 {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+  scroll-margin-top: 120px; /* offset for sticky navbar */
+}
+.section-text {
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
 
-    <div class="figure-container">
-      <embed
-        id="figureDisplay"
-        src="figures/meta_plot_swapped_axes_top_acc.pdf"
-        type="application/pdf"
-        width="100%"
-        height="500px"
-      />
-    </div>
+/* divider line */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: #ddd;
+  margin: 3rem auto;
+  width: 80%;
+}
 
-    <div class="figure-descriptions">
-      <!-- Figure 1 text -->
-      <p class="figure-text" id="fig1-text">
-        <strong>Figure 1:</strong><br>
-        <strong>(A)</strong> Model recovery accuracy across different dataset sizes.<br>
-        <strong>(B, C, D)</strong> Confusion matrices at three training set sizes.<br>
-        Each matrix row corresponds to the data-generating model, and each matrix column to the recovered model.<br>
-        Diagonal entries represent correct model recovery.
-      </p>
-      <!-- Figure 2 text -->
-      <p class="figure-text" id="fig2-text">
-        <strong>Figure 2:</strong><br>
-        Model test accuracy on the THINGS odd-one-out dataset over gradient levels of linear-probing flexibility.<br>
-        <strong>(A)</strong> Models accuracy using Zero-shot evaluation.<br>
-        <strong>(B)</strong> Using diagonal transformation matrix, fitting <em>p</em> parameters.<br>
-        <strong>(C)</strong> Using rectangular transformation fitting <em>p × 10</em> parameters.<br>
-        <strong>(D)</strong> Using square transformation fitting <em>p × p</em> parameters.<br>
-        OpenAI CLIP ResNet-50 yields the highest predictive accuracy significantly.
-      </p>
-      <!-- Figure 3 text -->
-      <p class="figure-text" id="fig3-text">
-        <strong>Figure 3:</strong><br>
-        <strong>(A)</strong> Mean rank of the data-generating model ordered by predictive accuracy.<br>
-        <strong>(B)</strong> Mean rank of each model when it is <em>not</em> the data-generating model.
-      </p>
-      <!-- Figure 4 text -->
-      <p class="figure-text" id="fig4-text">
-        <strong>Figure 4:</strong><br>
-        Model recovery accuracy as a function of “best-case” predictive accuracy.<br>
-        Each point reflects a probe flexibility and training set size.
-      </p>
-      <!-- Figure 5 text -->
-      <p class="figure-text" id="fig5-text">
-        <strong>Figure 5:</strong><br>
-        Change in representational dissimilarity before and after applying a linear transformation.<br>
-        Visualized using MDS: red dot = original embedding; green arrow = probing shift.<br>
-        VICE model used as the most human-like representational space.
-      </p>
-    </div>
+/* --- Controls --- */
+.controls {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+select, button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+button {
+  background: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+button:hover {
+  background: #e2e2e2;
+}
 
-    <hr class="section-divider" />
+/* --- Figure Display --- */
+.figure-container {
+  margin-top: 2rem;
+}
+embed {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #f4f4f4;
+}
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>This project was created with ❤️ for anonymous academic review.</p>
-    </footer>
-  </div>
+/* --- Figure Descriptions --- */
+.figure-descriptions {
+  text-align: left;
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+.figure-text {
+  display: none;
+  line-height: 1.6;
+}
 
-  <!-- Fixed JS include (no DOMContentLoaded) -->
-  <script src="script.js"></script>
-</body>
-</html>
+/* --- Footer --- */
+.footer {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 2rem;
+}
