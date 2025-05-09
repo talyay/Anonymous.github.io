@@ -1,8 +1,9 @@
+/* --- Base & Layout --- */
 body {
   font-family: 'Merriweather', serif;
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8;
+  background: #f8f8f8;
   color: #222;
   scroll-behavior: smooth;
 }
@@ -11,123 +12,123 @@ body {
   max-width: 800px;
   margin: 4rem auto;
   padding: 2rem;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
   border-radius: 8px;
   text-align: center;
 }
 
+/* --- Navbar --- */
 .navbar {
   position: sticky;
-  top: 0;
-  background-color: #ffffff;
+  top: 0; left: 0; right: 0;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
   padding: 1rem 0;
   display: flex;
   justify-content: center;
   gap: 2rem;
-  border-bottom: 1px solid #ddd;
-  z-index: 999;
+  z-index: 1000;
 }
-
 .navbar a {
   color: #444;
   text-decoration: none;
   font-weight: bold;
 }
-
 .navbar a:hover {
   text-decoration: underline;
 }
 
-.anonymous-note {
-  font-size: 0.95rem;
-  font-style: italic;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
-  color: #444;
-}
-
-a {
-  color: #444;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
+/* --- GitHub Icon --- */
 .github-icon {
   margin-right: 6px;
   transition: transform 0.2s ease;
 }
-
 .github-icon:hover {
   transform: scale(1.2);
 }
 
-h1 {
-  margin-bottom: 0.2rem;
-  font-size: 2rem;
+/* --- Anonymous Tag & Links --- */
+.anonymous-note {
+  font-style: italic;
+  margin: 1rem 0 1.5rem;
+  color: #444;
+}
+a {
+  color: #444;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 
+/* --- Headings & Sections --- */
+h1 { font-size: 2rem; margin-bottom: 0.2rem; }
 h2 {
-  margin-top: 2.5rem;
   font-size: 1.4rem;
-  scroll-margin-top: 120px;
+  margin-top: 2.5rem;
+  scroll-margin-top: 120px; /* for anchor scroll */
+}
+.section-text {
+  margin-top: 0.5rem;
+  line-height: 1.6;
 }
 
-select,
-button {
-  margin-top: 1rem;
+/* divider line */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: #ddd;
+  margin: 3rem auto;
+  width: 80%;
+}
+
+/* --- Controls --- */
+.controls {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+select, button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
 }
-
 button {
-  background-color: #f2f2f2;
+  background: #f2f2f2;
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background 0.2s ease;
 }
-
 button:hover {
-  background-color: #e2e2e2;
+  background: #e2e2e2;
 }
 
+/* --- Figure Display --- */
 .figure-container {
   margin-top: 2rem;
 }
-
 embed {
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #f4f4f4;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #f4f4f4;
 }
 
+/* --- Figure Descriptions --- */
 .figure-descriptions {
   text-align: left;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
   padding: 0 1rem;
 }
-
 .figure-text {
   display: none;
   line-height: 1.6;
 }
 
-.section-divider {
-  border: none;
-  height: 1px;
-  background-color: #ddd;
-  margin: 3rem auto;
-  width: 80%;
-}
-
-footer {
-  text-align: center;
+/* --- Footer --- */
+.footer {
   font-size: 0.85rem;
   color: #777;
   margin-bottom: 2rem;
