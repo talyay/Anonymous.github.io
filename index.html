@@ -7,82 +7,88 @@
   <link href="style.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/5a2d6f0b7d.js" crossorigin="anonymous"></script>
+  <!-- MathJax for LaTeX -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
-  <!-- ניווט עליון -->
   <nav class="navbar">
     <a href="#abstract">Abstract</a>
     <a href="#figures">Figures</a>
     <a href="#code">Code & Data</a>
   </nav>
 
-  <!-- תוכן המרכזי -->
   <div class="container">
     <h1>Paper Title Here</h1>
     <p class="anonymous-note"><em>Anonymous submission – version 1</em></p>
-    <a id="code" href="#"><i class="fab fa-github github-icon"></i> View Code and Data</a>
+    <a id="code" href="#">
+      <i class="fab fa-github github-icon"></i>
+      View Code and Data
+    </a>
 
     <hr class="section-divider" />
 
     <h2 id="abstract">Abstract Title</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.
+      This is where your abstract goes. You can write inline LaTeX like \( E = mc^2 \),<br>
+      or block LaTeX like: <br>
+      $$ \int_a^b f(x)\,dx = F(b) - F(a) $$
     </p>
 
     <hr class="section-divider" />
 
     <h2 id="figures">Figures</h2>
     <label for="figureSelect">Choose a figure:</label>
-    <select id="figureSelect">
+    <select id="figureSelect" onchange="showFigure()">
       <option value="fig1">Figure 1</option>
       <option value="fig2">Figure 2</option>
       <option value="fig3">Figure 3</option>
       <option value="fig4">Figure 4</option>
       <option value="fig5">Figure 5</option>
     </select>
-    <button onclick="showFigure()">Show Figure</button>
 
     <div class="figure-container">
       <embed id="figureDisplay" src="figures/meta_plot_swapped_axes_top_acc.pdf" type="application/pdf" width="100%" height="500px" />
     </div>
 
-    <div id="figureText">
-      <p id="fig1-text" class="figure-text active"><strong>Figure 1:</strong><br>
+    <div class="figure-descriptions">
+      <p class="figure-text" id="fig1-text">
+        <strong>Figure 1:</strong><br>
         <strong>(A)</strong> Model recovery accuracy across different dataset sizes.<br>
-        <strong>(B, C, D)</strong> Confusion matrices at three training set sizes. Each matrix row corresponds to the data-generating model, and each matrix column to the recovered model.<br>
+        <strong>(B, C, D)</strong> Confusion matrices at three training set sizes.<br>
+        Each matrix row corresponds to the data-generating model, and each matrix column to the recovered model.<br>
         Diagonal entries represent correct model recovery.
       </p>
-
-      <p id="fig2-text" class="figure-text">
+      <p class="figure-text" id="fig2-text" style="display: none;">
         <strong>Figure 2:</strong><br>
         Model test accuracy on the THINGS odd-one-out dataset over gradient levels of linear-probing flexibility.<br>
-        <strong>(A)</strong> models accuracy using Zero-shot evaluation.<br>
-        <strong>(B)</strong> using diagonal transformation matrix, fitting p parameters of the linear transformation.<br>
-        <strong>(C)</strong> using rectangular transformation matrix fitting p×10 parameters.<br>
-        <strong>(D)</strong> using square transformation matrix fitting p×p parameters.<br>
-        A filled dot connected to an open dot indicates significantly greater accuracy (sign test, FWER corrected). For most flexible evaluations, OpenAI CLIP ResNet-50 yields the highest predictive accuracy significantly.
+        <strong>(A)</strong> Models accuracy using Zero-shot evaluation.<br>
+        <strong>(B)</strong> Using diagonal transformation matrix, fitting \( p \) parameters.<br>
+        <strong>(C)</strong> Using rectangular transformation fitting \( p \times 10 \) parameters.<br>
+        <strong>(D)</strong> Using square transformation fitting \( p \times p \) parameters.<br>
+        OpenAI CLIP ResNet-50 yields the highest predictive accuracy significantly.
       </p>
-
-      <p id="fig3-text" class="figure-text">
+      <p class="figure-text" id="fig3-text" style="display: none;">
         <strong>Figure 3:</strong><br>
-        <strong>(A)</strong> Mean rank of the data-generating model where, for each dataset, models are ordered according to their predictive accuracy. Ranks were averaged over simulated datasets each containing 4.2M triplets.<br>
-        <strong>(B)</strong> Mean rank of each model when it is <em>not</em> the data-generating model, averaged over simulated datasets with 4.2M training triplets.
+        <strong>(A)</strong> Mean rank of the data-generating model ordered by predictive accuracy.<br>
+        <strong>(B)</strong> Mean rank of each model when it is <em>not</em> the data-generating model.
       </p>
-
-      <p id="fig4-text" class="figure-text">
+      <p class="figure-text" id="fig4-text" style="display: none;">
         <strong>Figure 4:</strong><br>
-        Model recovery accuracy as a function of “best-case” predictive accuracy. Each point reflects a probe flexibility (from zero-shot to full matrix) and training set size.
+        Model recovery accuracy as a function of “best-case” predictive accuracy.<br>
+        Each point reflects a probe flexibility and training set size.
       </p>
-
-      <p id="fig5-text" class="figure-text">
+      <p class="figure-text" id="fig5-text" style="display: none;">
         <strong>Figure 5:</strong><br>
-        We summarize the change in representational dissimilarity between models before and after applying a linear transformation, visualized using MDS. A red dot indicates the model's original embedding, and a green arrow represents the 'traveled distance' of its representational space due to linear probing. We used VICE, an embedding model optimized for the THINGS odd-one-out task, as a representative of the most human-like representational space.
+        Change in representational dissimilarity before and after applying a linear transformation.<br>
+        Visualized using MDS, red dot = original embedding, green arrow = probing shift.<br>
+        VICE model used as the most human-like representational space.
       </p>
     </div>
 
     <hr class="section-divider" />
-
-    <!-- פוטר -->
     <footer class="footer">
       <p>This project was created with ❤️ for anonymous academic review.</p>
     </footer>
@@ -99,12 +105,12 @@
 
     function showFigure() {
       const select = document.getElementById("figureSelect");
-      const display = document.getElementById("figureDisplay");
-      const texts = document.querySelectorAll(".figure-text");
+      const embed = document.getElementById("figureDisplay");
+      embed.src = figurePaths[select.value];
 
-      display.src = figurePaths[select.value];
-      texts.forEach(text => text.classList.remove("active"));
-      document.getElementById(`${select.value}-text`).classList.add("active");
+      document.querySelectorAll('.figure-text').forEach(el => el.style.display = 'none');
+      const text = document.getElementById(select.value + "-text");
+      if (text) text.style.display = 'block';
     }
   </script>
 </body>
