@@ -1,3 +1,4 @@
+/* גופן כללי */
 body {
   font-family: 'Merriweather', serif;
   margin: 0;
@@ -8,6 +9,7 @@ body {
   scroll-behavior: smooth;
 }
 
+/* תוכן מרכזי */
 .container {
   max-width: 800px;
   margin: 4rem auto;
@@ -17,6 +19,7 @@ body {
   border-radius: 8px;
 }
 
+/* ניווט עליון */
 .navbar {
   position: sticky;
   top: 0;
@@ -34,10 +37,12 @@ body {
   text-decoration: none;
   font-weight: bold;
 }
+
 .navbar a:hover {
   text-decoration: underline;
 }
 
+/* טקסט אנונימי */
 .anonymous-note {
   font-size: 0.95rem;
   font-style: italic;
@@ -46,27 +51,42 @@ body {
   color: #444;
 }
 
+/* קישורים */
 a {
   color: #444;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
 
-#code i {
+/* אייקון GitHub */
+.github-icon {
   margin-right: 6px;
 }
 
+/* כותרות */
 h1 {
   margin-bottom: 0.2rem;
   font-size: 2rem;
 }
+
 h2 {
   margin-top: 2.5rem;
   font-size: 1.4rem;
 }
 
+/* קו מפריד */
+.section-divider {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 3rem auto;
+  width: 80%;
+}
+
+/* בחירה וכפתור */
 select,
 button {
   margin-top: 1rem;
@@ -86,33 +106,31 @@ button:hover {
   background-color: #e2e2e2;
 }
 
+/* תיבת הפיגר */
 .figure-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+embed {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f4f4f4;
+}
+
+/* תיאורי פיגרים */
+.figure-descriptions {
+  text-align: left;
   margin-top: 2rem;
 }
 
-iframe {
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #f4f4f4;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
+.figure-descriptions p {
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
-.figure-description {
-  text-align: left;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  padding: 0 1rem;
-}
-
-.section-divider {
-  border: none;
-  height: 1px;
-  background-color: #ddd;
-  margin: 3rem auto;
-  width: 80%;
-}
-
+/* פוטר */
 footer {
   text-align: center;
   font-size: 0.85rem;
