@@ -6,6 +6,7 @@ body {
   color: #222;
   scroll-behavior: smooth;
 }
+
 .container {
   max-width: 800px;
   margin: 4rem auto;
@@ -15,25 +16,28 @@ body {
   border-radius: 8px;
   text-align: center;
 }
+
 .navbar {
   position: sticky;
   top: 0;
   background: #fff;
-  padding: 1rem 0;
   border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
   display: flex;
   justify-content: center;
   gap: 2rem;
   z-index: 1000;
 }
+
 .navbar a {
   color: #444;
-  font-weight: bold;
   text-decoration: none;
+  font-weight: bold;
 }
 .navbar a:hover {
   text-decoration: underline;
 }
+
 .github-icon {
   margin-right: 6px;
   transition: transform 0.2s ease;
@@ -41,23 +45,38 @@ body {
 .github-icon:hover {
   transform: scale(1.2);
 }
+
 .anonymous-note {
   font-style: italic;
   margin: 1rem 0 1.5rem;
   color: #444;
 }
+
 a {
   color: #444;
+  text-decoration: none;
 }
-h1 {
-  font-size: 2rem;
-  margin-bottom: 0.2rem;
+a:hover {
+  text-decoration: underline;
 }
+
+h1 { font-size: 2rem; margin-bottom: 0.2rem; }
 h2 {
   font-size: 1.4rem;
   margin-top: 2.5rem;
   scroll-margin-top: 120px;
 }
+h3 {
+  font-size: 1rem;
+  margin-top: 1.2rem;
+  color: #555;
+}
+
+.section-text {
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
 .section-divider {
   border: none;
   height: 1px;
@@ -65,26 +84,18 @@ h2 {
   margin: 3rem auto;
   width: 80%;
 }
+
 .controls {
   margin: 1rem 0;
   display: flex;
   justify-content: center;
   gap: 0.5rem;
 }
-select, button {
+select {
   padding: 0.5rem 1rem;
   font-size: 1rem;
 }
-button {
-  background: #f2f2f2;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-button:hover {
-  background: #e2e2e2;
-}
+
 .figure-container {
   margin-top: 2rem;
 }
@@ -94,6 +105,7 @@ embed {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   background: #f4f4f4;
 }
+
 .figure-descriptions {
   text-align: left;
   margin: 2rem 0;
@@ -103,6 +115,7 @@ embed {
   display: none;
   line-height: 1.6;
 }
+
 .footer {
   font-size: 0.85rem;
   color: #777;
