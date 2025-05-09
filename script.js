@@ -8,23 +8,28 @@ const figurePaths = {
 
 window.addEventListener("DOMContentLoaded", () => {
   const select = document.getElementById("figureSelect");
-  const btn    = document.getElementById("showBtn");
-  const embed  = document.getElementById("figureDisplay");
+  const embed = document.getElementById("figureDisplay");
+  const fileName = document.getElementById("figureFileName");
 
   function updateFigure() {
     const key = select.value;
-    const path = figurePaths[key];
-    embed.src = path + "?v=" + new Date().getTime(); // מוסיף מזהה ייחודי כדי לכפות רענון
+    const file = figurePaths[key];
+    if (!file) return;
 
-    // עדכון טקסט
-    document.querySelectorAll(".figure-text")
-            .forEach(p => p.style.display = "none");
+    embed.src = file;
+    fileName.textContent = file.split("/").pop();
 
-    const txt = document.getElementById(key + "-text");
-    if (txt) txt.style.display = "block";
+    // hide all descriptions
+    document.querySelectorAll(".figure-text").forEach(el => {
+      el.style.display = "none";
+    });
+
+    const textEl = document.getElementById(`${key}-text`);
+    if (textEl) {
+      textEl.style.display = "block";
+    }
   }
 
-  btn.addEventListener("click", updateFigure);
   select.addEventListener("change", updateFigure);
-  updateFigure();
+  updateFigure(); // initialize
 });
