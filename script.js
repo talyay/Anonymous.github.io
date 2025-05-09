@@ -7,26 +7,27 @@ const figurePaths = {
   fig5: "figures/mds_full_features_small.pdf"
 };
 
-window.addEventListener("DOMContentLoaded", () => {
-  const select = document.getElementById("figureSelect");
-  const btn    = document.getElementById("showBtn");
-  const embed  = document.getElementById("figureDisplay");
+// grab elements (script is loaded *after* the DOM)
+const selectEl = document.getElementById("figureSelect");
+const btn      = document.getElementById("showBtn");
+const embedEl  = document.getElementById("figureDisplay");
+const texts    = document.querySelectorAll(".figure-text");
 
-  function updateFigure() {
-    const key = select.value;
-    embed.src = figurePaths[key] || "";
-    // hide all texts
-    document.querySelectorAll(".figure-text")
-            .forEach(p => p.style.display = "none");
-    // show only the matching one
-    const txt = document.getElementById(key + "-text");
-    if (txt) txt.style.display = "block";
-  }
+// the updater function
+function updateFigure() {
+  const key = selectEl.value;
+  // swap the embed src
+  embedEl.src = figurePaths[key] || "";
+  // hide all descriptions
+  texts.forEach(p => p.style.display = "none");
+  // show the matching one
+  const txt = document.getElementById(key + "-text");
+  if (txt) txt.style.display = "block";
+}
 
-  btn.addEventListener("click", updateFigure);
-  // optionally update on change as well
-  select.addEventListener("change", updateFigure);
+// set up event listeners
+btn.addEventListener("click", updateFigure);
+selectEl.addEventListener("change", updateFigure);
 
-  // initial load
-  updateFigure();
-});
+// initial load
+updateFigure();
