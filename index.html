@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Paper Title Here</title>
+  <title>Representational Alignment under Flexible Evaluation: When the Best-Fitting Model Isn’t the Right One</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
@@ -13,12 +13,12 @@
   <nav class="navbar">
     <a href="#abstract">Abstract</a>
     <a href="#figures">Figures</a>
-    <a href="#code">Code & Data</a>
+    <a href="#code">Introduction</a>
   </nav>
 
   <div class="container">
-    <h1>Paper Title Here</h1>
-    <p class="anonymous-note"><em>Anonymous submission – version 1</em></p>
+    <h1>Representational Alignment under Flexible Evaluation: When the Best-Fitting Model Isn’t the Right One</h1>
+    <p class="anonymous-note"><em>Anonymous Author(s)</em></p>
     <p>
       <a id="code" href="#">
         <i class="fab fa-github github-icon"></i>
@@ -28,9 +28,51 @@
 
     <hr class="section-divider" />
 
-    <h2 id="abstract">Abstract Title</h2>
+    <h2 id="abstract">Abstract</h2>
     <p class="section-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.
+      Linearly transforming stimulus representations of deep neural networks yields
+2 high-performing models of behavioral and neural response to complex stimuli.
+3 But does the test accuracy of such predictions identify genuine representational
+4 alignment? We addressed this question through a large-scale model-recovery study.
+5 Twenty diverse vision models were linearly aligned to 4.3 million behavioral judg-
+6 ments from the THINGS-odd-one-out dataset and calibrated to reproduce human
+7 response entropy. For each model in turn, we sampled synthetic responses from its
+8 probabilistic predictions, fitted all candidate models to the synthetic data, and tested
+9 whether the data-generating model would re-emerge as the best predictor of the sim-
+10 ulated data. Model recovery accuracy improved with training-set size but plateaued
+11 below 80%, even at 5.25 million simulated trials. Regression analyses linked
+12 misidentification primarily to shifts in representational geometry induced by the
+13 linear transformation, as well as to the effective dimensionality of the transformed
+14 features. These findings demonstrate that, even with massive data, overly flexible
+15 alignment metrics may fail to guide us toward artificial representations that are
+16 genuinely more human-aligned. Model comparison experiments must be designed
+17 to balance the trade-off between predictive accuracy and specificity—ensuring the
+18 best-fitting model is also the right one.
+    </p>
+
+    <hr class="section-divider" />
+<hr class="section-divider" />
+
+    <h2 id="abstract">Introduction</h2>
+    <p class="section-text">
+      20 The search for mechanistic explanations of human cognition, in combination with rapid advances
+21 in deep learning, has motivated the use of stimulus representations in pretrained neural networks as
+22 models of the biological representation of complex stimuli. Even without modification, stimulus
+23 representations in neural networks trained on visual tasks show surprising correspondence with
+24 cortical visual representations [1–3] and visual perceptual judgments [4–6]. When evaluation is made
+25 flexible by fitting linear weights to improve the alignment of neural network representations with
+26 brain [7–9] or behavioral data [10, 11], this approach achieves predictive accuracy that exceeds that of
+27 any other computational model. A major assumption underlying current research on representational
+28 alignment between humans and deep neural networks (DNNs) is that a neural network whose
+29 representations are more predictive of brain or behavioral data is a better model of biological
+30 representations and computations. For models evaluated without further data-driven fitting, high
+31 predictive accuracy occurring by chance is unlikely. However, once flexible, data-driven fitting
+32 procedures are employed, an important question arises: does predictive accuracy under flexible
+33 evaluation truly reflect representational alignment? [12–14]. This question carries weight since there
+34 are good reasons to employ flexible evaluation. A complete yet fully emergent representational
+35 alignment is unlikely even for models whose processing is qualitatively similar to that of humans.
+36 Furthermore, inter-individual variability may also motivate flexible alignment metrics [15]. And yet,
+37 flexible evaluation may incur a hidden cost: when each model is allowed to adjust to best fit brain or
     </p>
 
     <hr class="section-divider" />
