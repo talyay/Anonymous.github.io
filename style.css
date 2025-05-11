@@ -76,7 +76,7 @@ h3 {
 .section-text {
   margin-top: 0.5rem;
   line-height: 1.5;
-text-align: justify;
+  text-align: justify;
 }
 
 .section-divider {
@@ -98,15 +98,23 @@ select {
   font-size: 1rem;
 }
 
+/* === 📌 תוקן כאן === */
 .figure-container {
   margin-top: 2rem;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
 }
-embed {
+
+iframe#figureDisplay {
+  width: 100%;
+  height: 600px;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   background: #f4f4f4;
 }
+/* =============== */
 
 .figure-descriptions {
   text-align: left;
